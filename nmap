@@ -1,0 +1,100 @@
+#!/bin/bash
+
+#while [ 1 = 1 ];
+#do
+
+<<COMMENT
+Follow me on
+instagram : @106_Sam
+twitter : @SamiAbdul916
+reddit : /u106_Sam
+COMMENT
+
+cat figlet
+#nmap = `whereis nmap | grep nmap | cut -d " " -f 2`
+echo "Select one type of scan method
+      1. Normal Scan
+      2. Agressive Scan
+      3. Version Detection
+      4. OS Detection
+      5. UDP Scan
+      6. TCP Scan(SYN/ACK/Null/FIN/Xmas)
+      7. Script(default script scan)
+      8. Scan Specific Port
+      9. Exit
+      "
+read -p "choose (1-9): " choice
+
+
+if [ $choice -eq 1 ];
+
+then
+	read -p "IP Address : " IP
+	sudo `whereis nmap | grep nmap | cut -d " " -f 2` -T4 $IP
+
+elif [ $choice -eq 2 ];
+then
+	read -p "IP Address : " IP
+	sudo nmap -T4 -A $IP
+
+elif [ $choice -eq 3 ];
+then
+	read -p "IP Address: " IP
+	sudo nmap -T4 -sV $IP
+
+elif [ $choice -eq 4 ];
+then
+	read -p "IP Address: " IP
+	sudo nmap -T4 -O $IP
+
+elif [ $choice -eq 5 ];
+then
+	read -p "IP Address: " IP
+	sudo nmap -T4 -sU $IP
+
+elif [ $choice -eq 6 ];
+then
+	echo "Select TCP Scan:
+	1. Normal TCP Scan
+	2. TCP ACK Scan
+	3. TCP Null Scan
+	4. TCP FIN Scan
+	5. TCP Xmas Scan
+    6. TCP SYN Scan
+	"
+	read -p "Choose (1-5)" choice
+	if [ $choice -eq 1 ];
+	then
+		read -p "IP Address: " IP
+		sudo nmap -T4 -sT $IP
+	elif [[ $choice -eq 2 ]]; then
+        read -p "IP Address: " IP
+        sudo nmap -T4 -sA $IP
+    elif [[ $choice -eq 3 ]]; then
+        read -p "IP Address: " IP
+        sudo nmap -T4 -sN $IP
+    elif [[ $choice -eq 4 ]]; then
+        read -p "IP Address: " IP
+        sudo nmap -T4 -sF $IP
+    elif [[ $choice -eq 5 ]]; then
+        read -p "IP Address: " IP
+        sudo nmap -T4 -sX $IP
+    elif [[ $choice -eq 6 ]]; then
+        read -p "IP Address: " IP
+        sudo nmap -T4 -sS $IP
+
+    fi
+elif [[ $choice -eq 7 ]]; then
+    read -p "IP Address: " IP
+    sudo nmap -T4 -sC $IP
+
+elif [[ $choice -eq 8 ]]; then
+    read -p "IP Address: " IP
+    read -p "Port numbers: " Port
+    sudo nmap -T4 -sT $IP -p $Port
+
+elif [ $choice -eq 9 ];
+then
+	exit
+fi
+#done
