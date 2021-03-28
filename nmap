@@ -62,7 +62,7 @@ then
 	5. TCP Xmas Scan
     6. TCP SYN Scan
 	"
-	read -p "Choose (1-5)" choice
+	read -p "Choose (1-5): " choice
 	if [ $choice -eq 1 ];
 	then
 		read -p "IP Address: " IP
