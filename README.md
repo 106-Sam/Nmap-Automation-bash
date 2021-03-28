@@ -7,11 +7,11 @@ _$ ./setup_
 
 # RUN script
 ***
-_$ ./sam-nmap_
+_$ ./nmap_
 
 # INSTALLATION (Termux)
 
 _$ bash setup-termux_
 
-_$ bash sam-nmap_
+_$ bash nmap_
   
