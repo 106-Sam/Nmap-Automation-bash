@@ -2,4 +2,4 @@
 
 sudo apt install nmap 
 
-sudo chmod +x figlet nmap
+sudo chmod +x figlet sam-nmap
